@@ -1,0 +1,69 @@
+<div class="background-wrap">
+  <img src="https://images.unsplash.com/photo-1462206092226-f46025ffe607?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8YmFua3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80" width="1600" height="800" alt="">
+  <style>
+    h1 {
+      
+      font-size: 60px;
+    }
+    
+    h2 {
+      line-height: 2.50;
+      font-size: 45px;
+    }
+    
+    p {
+      font-size: 14px;
+    }
+    </style>
+ 
+ 
+  
+
+    <div class="background">
+      <img src="https://image.shutterstock.com/image-photo/businessman-holding-word-banking-hand-600w-1150180799.jpg" width="1800" height="400" alt="">
+
+      <div class="text-block">
+        <h4>Nature</h4>
+        <p>What a beautiful sunrise</p>
+      </div>
+    </div>
+  </div>
+ 
+
+  <form id="accesspanel"   action="login" method="post" #validateform="ngForm">
+    <div class="form-group">
+    <h1 id="litheader">ICC Banking System </h1>
+    <div class="inset">
+      <div>
+      
+        <input type="text" class="form-control" required
+         name="username" [(ngModel)]="username" id="email" placeholder="username" #name="ngModel">
+    
+       <span [hidden]="name.valid || name.pristine" class="alert alert-danger"> Username is required</span>
+      </div> 
+
+  
+      <div>
+       
+      <p>
+        <input [type]="hide ? 'password' : 'text'" class ="form-control"  required  name="password" [(ngModel)]="password" id="password" placeholder="password" #pass="ngModel">
+   
+      </p>
+      
+      <p [hidden]="pass.valid || pass.pristine " class="alert alert-danger"> Password is required</p>
+    </div>
+
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon color="primary">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+
+      
+  </div>
+   
+    <p class="p-container">
+      <input type="submit" [disabled]="validateform.invalid"   name="Login" id="go" value="Login" (click)="doLogin()">
+    </p>
+ </div>
+  </form>
+
+  

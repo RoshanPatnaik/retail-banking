@@ -1,0 +1,409 @@
+<nav class="navbar navbar-expand-lg sticky-top">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" routerLink = "/home/{{id}}">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="#myModal" data-toggle="modal">About Us</a>
+        <a class="nav-item nav-link" href="#myModal" data-toggle="modal">Contact Us</a>
+        <div>
+        <a class="btn" style="background-color: white; margin-left:71rem;" (click) = "logout()" >Logout</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+<div class="body">
+  <br><br>
+  <div class="container" style="background-color: white; height: 38rem; width: 90%; padding: 3% 5% 0 5%; border-radius: 50px; color: #15008b;">
+    
+    <img style="float: right;" src="/assets/images/bank2.jpg">
+    <div class="welcome-content">
+      <h3>
+        Hello {{username.userName | uppercase}} !
+      </h3>
+      <br>
+      <h5 style="padding-left: 2rem; line-height: 4rem;">
+        Welcome to ICC Bank! <br>
+        One Stop for all your Financial Services
+      </h5>
+      <br>
+      
+      <button style="margin-left: 7rem; font-size: medium;" (click) = "scroll(target)">Get My Details</button>
+      </div>
+  </div>
+  <br/><br/>
+  <br/><br/>
+
+
+
+  <div class="hr-image">
+    <img src="/assets/images/hr.jpg" style="padding: 0 15%;">
+  </div>
+
+
+
+
+
+  <br/>
+  <div #target class="container" style="padding-left: 5%;">
+    <br/> <br><br>
+    <div class="row">
+
+      <div class="col">
+
+        <div class="card">
+          <br><br><br>
+          <img class="card-img-top" src="https://account.samsung.com/membership/assets/images/intro/intro_mbr.png" alt="Card image cap">
+          <br>
+          <div class="card-body">
+            
+            <h5 class="card-title">ACCOUNTS</h5>
+            <div class="card-text">
+              
+              <table class="table-custom" style="font-size: 12px;">
+                <thead>
+                    <tr>
+                        <th>AccName</th>
+                        <th>AccType</th>
+                        <th>Balance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let a of accounts">
+                        <td>{{a.accountNickName}}</td>
+                        <td>{{a.accountType}}</td>
+                        <td>{{a.accountBalance}}</td>
+                    </tr>
+                </tbody>
+              </table>
+            </div>
+            <br><br>
+            <a routerLink = "/accounts/{{id}}" class="btn" id="card-viewmore" style="margin-top: 17px;">View More</a>
+          </div>
+        </div>
+
+      </div>
+      
+      <div class="col">
+
+        <div class="card">
+          <img class="card-img-top" src="/assets/images/transactions.jpg" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">TRANSACTIONS</h5>
+            <div class="card-text">
+              <table class="table-custom " style="font-size: 12px;">
+                <thead>
+                    <tr>
+                        <th>TransId</th>
+                        <th>TransDate</th>
+                        <th>TransAmt</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let t of transactions">
+                        <td>{{t.transactionId}}</td>
+                        <td>{{t.transactionDate}}</td>
+                        <td>{{t.transactionAmount}}</td>
+                    </tr>
+                </tbody>
+              </table>
+            </div>
+            <a routerLink = "/transactions/{{id}}" class="btn" id="card-viewmore">View More</a>
+          </div>
+        </div>
+
+      </div>
+    
+      
+      <div class="col">
+
+        <div class="card">
+          <br>
+          <img class="card-img-top" src="/assets/images/rewards.jpg" alt="Card image cap">
+          
+          <div class="card-body" style="margin-top: 60px;">
+            <h5 class="card-title">REWARDS</h5>
+            <div class="card-text">
+              <div class="box">
+                <div>
+                <br><br><br>
+                  <h5>Total Rewards</h5>
+                  <p>{{rewards}}</p>
+                  </div>
+              </div>
+            </div>
+            <br>
+            <a routerLink = "/rewards/{{id}}" class="btn" id="card-viewmore" style="margin-top: 24px;">View More</a>
+          </div>
+        </div>
+
+      </div>
+
+      </div>
+    <br><br><br>
+    <div class="row">
+      <div class="col">
+
+        <div class="card">
+          <br><br>
+          <img class="card-img-top" src="/assets/images/credits.jpg" alt="Card image cap">
+          
+          <div class="card-body" style="margin-top: 63px;">
+            <h5 class="card-title">CREDIT REPORT</h5>
+            <div class="card-text">
+              <div class="box">
+                <div>
+                  <br><br><br>
+                  <h5>Credit Score</h5>
+                  <p>{{credits}}</p>
+                </div>
+              </div>
+            </div>
+            <br><br>
+            <a routerLink = "/creditscore/{{id}}" class="btn" id="card-viewmore" style="margin-top: 7px;">View More</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col">
+
+        <div class="card">
+          <br><br>
+          <img class="card-img-top" src="/assets/images/loan.jpg" alt="Card image cap">
+          
+          <div class="card-body" style="margin-top: 63x;">
+            <h5 class="card-title">LOANS</h5>
+            <div class="card-text">
+              <table class="table-custom" style="font-size: 12px;">
+                <thead>
+                    <tr>
+                        <th>LoanType</th>
+                        <th>Interest</th>
+                        <th>TimePeriod</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let l of loans">
+                        <td>{{l.loanType}}</td>
+                        <td>{{l.interest}}</td>
+                        <td>{{l.period}}</td>
+                    </tr>
+                </tbody>
+              </table>
+            </div>
+            <br><br>
+            <a href="#myModal" data-toggle="modal" class="btn" id="card-viewmore" style="margin-top: 25px;">View More</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col">
+
+        <div class="card">
+          <br>
+          <img class="card-img-top" style="padding-bottom: 2%;" src="/assets/images/achievements.jpg" alt="Card image cap">
+          
+          <div class="card-body" style="margin-top: 63px;">
+            <h5 class="card-title" style="padding-bottom: 5px;">ACHIEVEMENTS</h5>
+            <div class="card-text">
+              <div class="box">
+                <div style="line-height: 35px; text-align: left;">
+                  <i class='fas fa-medal' style='font-size:18px;color:white;'></i>&nbsp; 56,000 New Customers in this year <br>
+                  <i class='fas fa-medal' style='font-size:18px;color:white;'></i>&nbsp; Amount deposited 12% higher than &nbsp;&nbsp;&nbsp;&nbsp; previous year <br>
+                  <i class='fas fa-medal' style='font-size:18px;color:white;'></i>&nbsp; 12,000 Loans Sanctioned <br>
+                  <i class='fas fa-medal' style='font-size:18px;color:white;'></i> &nbsp;<i class="fa fa-rupee" style="font-size:16px;color:white"></i> 2 Crore collected as amount of 
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; interest on loans
+                </div>
+              </div>
+            </div>
+            <br><br>
+            <a href="#myModal" data-toggle="modal" class="btn" id="card-viewmore">View More</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+      
+      
+      
+    
+    </div>
+  <br/><br/><br/>
+  </div>
+
+  <!--Footer-->
+  <div class="footer1">
+    <footer class="page-footer font-small unique-color-dark">
+
+      <div style="background-color:  #15008b; color: white;">
+        <div class="container">
+    
+          <!-- Grid row-->
+          <div class="row py-4 d-flex align-items-center">
+    
+            <!-- Grid column -->
+            <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+              <h6 class="mb-0">Get connected with us on social networks!</h6>
+            </div>
+            <!-- Grid column -->
+    
+            <!-- Grid column -->
+            <div class="col-md-6 col-lg-7 text-center text-md-right">
+    
+              <!-- Facebook -->
+              <a class="fb-ic">
+                <mdb-icon fab icon="facebook" class="white-text mr-4"></mdb-icon>
+              </a>
+              <!-- Twitter -->
+              <a class="tw-ic">
+                <mdb-icon fab icon="twitter" class="white-text mr-4"></mdb-icon>
+              </a>
+              <!-- Google +-->
+              <a class="gplus-ic">
+                <mdb-icon fab fab icon="google-plus" class="white-text mr-4"></mdb-icon>
+              </a>
+              <!--Linkedin -->
+              <a class="li-ic">
+                <mdb-icon fab icon="linkedin" class="white-text mr-4"></mdb-icon>
+              </a>
+              <!--Instagram-->
+              <a class="ins-ic">
+                <mdb-icon fab icon="instagram" class="white-text mr-4"></mdb-icon>
+              </a>
+    
+            </div>
+            <!-- Grid column -->
+    
+          </div>
+          <!-- Grid row-->
+    
+        </div>
+      </div>
+    
+      <!-- Footer Links -->
+      <div class="container text-center text-md-left mt-5">
+    
+        <!-- Grid row -->
+        <div class="row mt-3">
+    
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+    
+            <!-- Content -->
+            <h6 class="text-uppercase font-weight-bold">ICC Bank</h6>
+            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+            <p>
+              The most trustworthy and the scure bank in US. Make everything digital.
+            </p>
+    
+          </div>
+          <!-- Grid column -->
+    
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+    
+            <!-- Links -->
+            <h6 class="text-uppercase font-weight-bold">Services</h6>
+            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+            <p>
+              <a routerLink = "/accounts/{{id}}">Accounts</a>
+            </p>
+            <p>
+              <a routerLink = "/transactions/{{id}}">Transactions</a>
+            </p>
+            <p>
+              <a routerLink = "/creditscore/{{id}}">Credit Score</a>
+            </p>
+            <p>
+              <a routerLink = "/rewards/{{id}}">Rewards</a>
+            </p>
+    
+          </div>
+          <!-- Grid column -->
+    
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+    
+            <!-- Links -->
+            <h6 class="text-uppercase font-weight-bold">Useful links</h6>
+            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+            <p>
+              <a href="#!">Your Account</a>
+            </p>
+            <p>
+              <a href="#!">Become an Affiliate</a>
+            </p>
+            <p>
+              <a href="#!">Shipping Rates</a>
+            </p>
+            <p>
+              <a href="#!">Help</a>
+            </p>
+    
+          </div>
+          <!-- Grid column -->
+    
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+    
+            <!-- Links -->
+            <h6 class="text-uppercase font-weight-bold">Contact</h6>
+            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+            <p>
+              <mdb-icon fas icon="home" class="mr-3"></mdb-icon> New York, NY 10012, US
+            </p>
+            <p>
+              <mdb-icon fas icon="envelope" class="mr-3"></mdb-icon> iccbank@example.com
+            </p>
+            <p>
+              <mdb-icon fas icon="phone" class="mr-3"></mdb-icon> + 01 234 567 88
+            </p>
+            <p>
+              <mdb-icon fas icon="print" class="mr-3"></mdb-icon> + 01 234 567 88
+            </p>
+    
+          </div>
+          <!-- Grid column -->
+    
+        </div>
+        <!-- Grid row -->
+    
+      </div>
+      <!-- Footer Links -->
+    
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-3">© 2021 Copyright:
+        <a href="http://localhost:4200/">iccbank.com</a>
+      </div>
+      <!-- Copyright -->
+    
+    </footer>    
+  </div>
+  <!-- Footer -->
+  
+<!-- View More Modal -->
+  <div id="myModal" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+      <div class="modal-content">
+        <div class="modal-header flex-column">
+          <div class="icon-box">
+            <i class="material-icons">&#xE5CD;</i>
+          </div>
+          <h4 class="modal-title w-100">Not Found</h4>
+          <a class="close" data-dismiss="modal"
+            aria-hidden="true">&times;</a>
+        </div>
+        <div class="modal-body">
+          <p>This section is under MAINTENANCE till Saturday, January 30, 6:00 P.M.</p>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <a class="btn btn-danger" style="color: white;"
+            data-dismiss="modal">OK</a>
+
+          
+        </div>
+      </div>
+    </div>
